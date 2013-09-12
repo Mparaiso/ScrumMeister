@@ -1,5 +1,5 @@
 <%@ include file="header.jsp"%>
-<%@ page import="java.util.*,model.*" %>
+<%@ page import="java.util.*,model.*"%>
 <h2>
 	You asked for color
 	<%=(String) request.getAttribute("color")%></h2>
