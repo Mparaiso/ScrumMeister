@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>beeradvisor</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>IndexServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SelectBeer</servlet-name>
+		<servlet-class>SelectBeer</servlet-class>
+		<init-param>
+			<param-name>email</param-name>
+			<param-value>admin@online.fr</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SelectBeerServlet</servlet-name>
+		<url-pattern>/SelectBeer</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>email</param-name>
+		<param-value>
+	       info@online.fr
+	   </param-value>
+	</context-param>
+	<context-param>
+		<param-name>title</param-name>
+		<param-value>Beer Advisor</param-value>
+	</context-param>
+	<!-- beer attrs -->
+	<context-param>
+		<param-name>brand</param-name>
+		<param-value>Heinkein</param-value>
+	</context-param>
+	<context-param>
+		<param-name>name</param-name>
+		<param-value>1664</param-value>
+	</context-param>
+	<listener>
+		<listener-class>MyServletContextListener</listener-class>
+	</listener>
+</web-app>
