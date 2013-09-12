@@ -2,7 +2,7 @@ package dal;
 
 import java.sql.*;
 
-public class DataManager {
+public class DataManager implements IDataManager {
 	private String dbPassword;
 	private String dbUsername;
 	private String dbUrl;
@@ -16,7 +16,7 @@ public class DataManager {
 	 * @param dbUsername
 	 * @param dbPassword
 	 */
-	DataManager(String driver, String dbUrl, String dbUsername,
+	public DataManager(String driver, String dbUrl, String dbUsername,
 			String dbPassword) {
 		this.setDriver(driver);
 		this.setDbUrl(dbUrl);
@@ -24,11 +24,10 @@ public class DataManager {
 		this.setDbPassword(dbPassword);
 	}
 
-	/**
-	 * Ferme la connection
-	 * 
-	 * @param conn
+	/* (non-Javadoc)
+	 * @see dal.IDataManager#putConnection(java.sql.Connection)
 	 */
+	@Override
 	public void putConnection(Connection conn) {
 		if (conn != null) {
 			try {
@@ -39,6 +38,10 @@ public class DataManager {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see dal.IDataManager#getConnection()
+	 */
+	@Override
 	public Connection getConnection() {
 		Connection conn = null;
 		try {
