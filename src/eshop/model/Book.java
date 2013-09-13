@@ -1,4 +1,4 @@
-package eshop;
+package eshop.model;
 
 public class Book {
 	protected int id;

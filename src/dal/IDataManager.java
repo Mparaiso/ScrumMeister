@@ -1,6 +1,7 @@
 package dal;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public interface IDataManager {
 
@@ -11,6 +12,6 @@ public interface IDataManager {
 	 */
 	public abstract void putConnection(Connection conn);
 
-	public abstract Connection getConnection();
+	public abstract Connection getConnection() throws SQLException;
 
 }

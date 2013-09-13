@@ -9,6 +9,23 @@
 		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	<!--  MAPPING -->
+	<servlet>
+		<servlet-name>BookCreate</servlet-name>
+		<servlet-class>eshop.servlet.BookCreate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BookCreate</servlet-name>
+		<url-pattern>/bookcreate</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BookServlet</servlet-name>
+		<servlet-class>eshop.servlet.BookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BookServlet</servlet-name>
+		<url-pattern>/books</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>IndexServlet</servlet-name>
 		<servlet-class>IndexServlet</servlet-class>
@@ -55,9 +72,8 @@
 		<param-name>name</param-name>
 		<param-value>1664</param-value>
 	</context-param>
-	<!-- DB settings -->
 	<context-param>
-		<param-name>connectionString</param-name>
+		<param-name>dbUrl</param-name>
 		<param-value>jdbc:mysql://localhost:3306/test</param-value>
 	</context-param>
 	<context-param>
@@ -72,8 +88,10 @@
 		<param-name>jdbcDriver</param-name>
 		<param-value>com.mysql.jdbc.Driver</param-value>
 	</context-param>
-	<!-- end DB settings -->
 	<listener>
 		<listener-class>MyServletContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>eshop.listener.MyServletContextListener</listener-class>
 	</listener>
 </web-app>

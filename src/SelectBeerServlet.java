@@ -24,15 +24,15 @@ public class SelectBeerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		//PrintWriter out = response.getWriter();
+		// PrintWriter out = response.getWriter();
 		// @note @servlet récuperer les données de formulaire
 		String beerColor = request.getParameter("color");
 		BeerExpert beerExpert = new BeerExpert();
 		List<String> beerList = beerExpert.getBrands(beerColor);
-		//@note @servlet @java passer un paramètre à la vue
+		// @note @servlet @java passer un paramètre à la vue
 		request.setAttribute("color", beerColor);
 		request.setAttribute("beers", beerList);
-		//@note @servlet @java appeler un template jsp
+		// @note @servlet @java appeler un template jsp
 		RequestDispatcher view = request.getRequestDispatcher("result.jsp");
 		view.forward(request, response);
 

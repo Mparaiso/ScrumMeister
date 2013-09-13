@@ -24,7 +24,9 @@ public class DataManager implements IDataManager {
 		this.setDbPassword(dbPassword);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see dal.IDataManager#putConnection(java.sql.Connection)
 	 */
 	@Override
@@ -38,16 +40,19 @@ public class DataManager implements IDataManager {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see dal.IDataManager#getConnection()
 	 */
 	@Override
-	public Connection getConnection() {
+	public Connection getConnection() throws SQLException {
 		Connection conn = null;
 		try {
+			Class.forName(this.getDriver());
 			conn = DriverManager.getConnection(getDbUrl(), getDbUsername(),
 					getDBPassword());
-		} catch (SQLException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return conn;
